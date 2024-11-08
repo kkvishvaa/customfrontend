@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internships</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file if any -->
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d1b2a; /* Dark blue background */
+            color: #f0f4f8; /* Light text color */
+        }
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            opacity: 1; /* Adjust as needed */
+        }
+
+        header {
+            background-color:no color; /* Darker blue header */
+            color: #f0f4f8;
+            text-align: center;
+            padding: 20px;
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px; /* You can adjust the height based on your design */
+           
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: left;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0); /* Fully transparent */
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        /* Card Styling */
+        .internship-card {
+            background-color: #1e3a5f; /* Medium-dark blue for cards */
+            width: 23%;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .internship-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 0, 0, 0.3), transparent);
+            transform: rotate(0deg);
+            transition: transform 0.7s ease;
+            z-index: 0;
+        }
+
+        .internship-card:hover::before {
+            transform: rotate(180deg);
+        }
+
+        .internship-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .internship-card h3 {
+            color: #e0e6ed;
+            margin-bottom: 10px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .internship-card p {
+            margin: 10px 0;
+            color: #9bb1c9;
+            z-index: 1;
+            position: relative;
+        }
+
+        .internship-card .btn {
+            background-color: #d62828; /* Red button */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            z-index: 1;
+            position: relative;
+        }
+
+        .internship-card .btn:hover {
+            background-color: #ef476f; /* Lighter red on hover */
+            transform: scale(1.05);
+        }
+
+        /* Free and Paid Status */
+        .internship-card .free {
+            color: #06d6a0;
+            font-weight: bold;
+        }
+
+        .internship-card .paid {
+            color: #ffd166;
+            font-weight: bold;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 1200px) {
+            .internship-card {
+                width: 48%; /* Make cards take up half the width */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .internship-card {
+                width: 100%; /* Cards take full width */
+            }
+            .container {
+                width: 90%; /* Make container a bit narrower */
+            }
+            .logo-container {
+                justify-content: center;
+                text-align: center;
+                padding: 20px 0;
+            }
+            header {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 1.2rem; /* Smaller header font size */
+            }
+            .logo-container {
+                flex-direction: column;
+            }
+            .internship-card h3 {
+                font-size: 1.2rem;
+            }
+            .internship-card p {
+                font-size: 0.9rem;
+            }
+            .internship-card .btn {
+                padding: 8px 16px; /* Smaller button padding */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Video -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="12421542_3840_2160_30fps.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="container-fluid">
+        <div class="logo-container fixed-top shadow-sm">
+            <a href="index.html">
+                <img src="mastersoils.webp" alt="Logo" class="logo-img">
+            </a>
+        </div>
+    </div>
+  
+    <header>
+        <h2>Internships</h2>
+    </header>
+
+    <div class="container">
+        <!-- Internship Cards (Frontend, Backend, etc.) -->
+        <div class="internship-card">
+            <h3>Frontend Developer Internship</h3>
+            <p><strong>Company:</strong> Tech Solutions</p>
+            <p><strong>Location:</strong> Remote</p>
+            <p><strong>Participants:</strong> 10+ Participants</p>
+            <p><strong>Status:</strong> <span class="free">Free</span></p>
+            <p><strong>Duration:</strong> 3 months</p>
+            <p>Gain experience building and optimizing the front end of web applications using modern frameworks like React.</p>
+            <a href="#" class="btn">Join Now</a>
+        </div>
+
+        <div class="internship-card">
+            <h3>Backend Developer Internship</h3>
+            <p><strong>Company:</strong> Codeworks</p>
+            <p><strong>Location:</strong> New York, NY</p>
+            <p><strong>Participants:</strong> 5+ Participants</p>
+            <p><strong>Status:</strong> <span class="paid">Paid</span></p>
+            <p><strong>Duration:</strong> 6 months</p>
+            <p>Work on server-side development, API design, and database management using Python and Django.</p>
+            <a href="#" class="btn">Join Now</a>
+        </div>
+
+        <div class="internship-card">
+            <h3>Cybersecurity Internship</h3>
+            <p><strong>Company:</strong> SecureTech</p>
+            <p><strong>Location:</strong> Remote</p>
+            <p><strong>Participants:</strong> 8+ Participants</p>
+            <p><strong>Status:</strong> <span class="free">Free</span></p>
+            <p><strong>Duration:</strong> 4 months</p>
+            <p>Assist with penetration testing, vulnerability assessment, and security protocol development for client systems.</p>
+            <a href="#" class="btn">Join Now</a>
+        </div>
+       
+        <div class="internship-card">
+            <h3>Data Science Internship</h3>
+            <p><strong>Company:</strong> DataHub</p>
+            <p><strong>Location:</strong> San Francisco, CA</p>
+            <p><strong>Participants:</strong> 12+ Participants</p>
+            <p><strong>Status:</strong> <span class="paid">Paid</span></p>
+            <p><strong>Duration:</strong> 5 months</p>
+            <p>Assist with data collection, cleaning, and analysis to generate actionable insights and predictive models.</p>
+            <a href="#" class="btn">Join Now</a>
+        </div>
+    </div>
+</body>
+</html>

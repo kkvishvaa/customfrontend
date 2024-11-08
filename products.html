@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="Login.css">
+  <!-- AOS Animation Library -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+</head>
+<style>
+  body, html {
+    font-family: 'poppins', sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.6);
+  }
+
+  .container-fluid {
+    position: relative;
+    z-index: 1;
+  }
+  .navbar {
+            padding: 15px 50px;
+            background-color: #001f5b;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand img {
+            height: 50px;
+        }
+        .navbar-nav .nav-item {
+            margin: 0 15px;
+        }
+        .nav-link {
+            font-weight: 600;
+            color: #fff !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .nav-link:hover {
+            background-color: #004080;
+            color: #fff !important;
+        }
+        .logo-container {
+    display: flex;
+    justify-content: left;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0); /* Fully transparent */
+
+}
+
+
+  .logo-img {
+    height: 50px; /* Adjust the height as needed */
+    width: auto;
+  }
+
+  
+  .card {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 10px;
+  }
+
+  .nav-link {
+    font-weight: bold;
+    color: #ff4d4d !important; /* Red color for tabs */
+    padding: 15px; /* Spacious tabs */
+    font-size: 1.1rem;
+  }
+
+  .nav-link.active {
+    background-color: #ff4d4d !important;
+    color: #fff !important;
+    border-radius: 5px;
+  }
+
+  .form-control {
+    border-radius: 5px;
+  }
+
+  .btn-primary {
+    background-color: #ff4d4d; /* Red color for buttons */
+    border: none;
+  }
+
+  .btn-primary:hover {
+    background-color: #cc0000; /* Darker red on hover */
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .form-control:focus {
+    border-color: #ff4d4d;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+  }
+
+  .animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
+
+  .fadeInUp {
+    animation-name: fadeInUp;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .slideInRight {
+    animation-name: slideInRight;
+  }
+  .card {
+    background: rgba(255, 255, 255, 0.7); /* Increase transparency */
+    border: none;
+    border-radius: 10px;
+   
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>
+<body>
+    
+<!-- Navbar -->
+<div class="logo-container fixed-top shadow-sm">
+    <a href="index.html">
+        <img src="mastersoils.webp" alt="Logo" class="logo-img">
+    </a>
+</div>
+  <video autoplay muted loop class="background-video">
+    <source src="8733060-uhd_2560_1440_30fps.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container-fluid vh-100 d-flex justify-content-center align-items-center">
+    <div class="col-12 col-md-6 d-flex justify-content-center align-items-center p-4">
+      <div class="card p-4 w-100 shadow-lg rounded-lg animated slideInRight">
+        <ul class="nav nav-pills mb-4 justify-content-center" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="user-tab" data-bs-toggle="pill" href="#user" role="tab">User</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="admin-tab" data-bs-toggle="pill" href="#admin" role="tab">Admin</a>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="user" role="tabpanel">
+            <h3 class="text-center text-dark mb-4">User Login</h3>
+            <form>
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control animated fadeInUp" id="username" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control animated fadeInUp delay-1s" id="password" required>
+              </div>
+              <button type="submit" class="btn btn-primary w-100 animated fadeInUp delay-2s">Login</button>
+              <p class="text-center text-dark mt-3">Don't have an account? <span class="text-primary" onclick="toggleSignup(true)" style="cursor: pointer;">Sign Up</span></p>
+            </form>
+          </div>
+
+          <div class="tab-pane fade" id="admin" role="tabpanel">
+            <h3 class="text-center text-dark mb-4">Admin Login</h3>
+            <form>
+              <div class="mb-3">
+                <label for="username-admin" class="form-label">Username</label>
+                <input type="text" class="form-control animated fadeInUp" id="username-admin" required>
+              </div>
+              <div class="mb-3">
+                <label for="password-admin" class="form-label">Password</label>
+                <input type="password" class="form-control animated fadeInUp delay-1s" id="password-admin" required>
+              </div>
+              <button type="submit" class="btn btn-primary w-100 animated fadeInUp delay-2s">Login</button>
+              <p class="text-center text-dark mt-3">Don't have an account? <span class="text-primary" onclick="toggleSignup(true)" style="cursor: pointer;">Sign Up</span></p>
+            </form>
+          </div>
+        </div>
+
+        <div class="signup-form" style="display: none;">
+          <h3 class="text-center text-dark mb-4">Sign Up</h3>
+          <form>
+            <div class="mb-3">
+              <label for="username-signup" class="form-label">Username</label>
+              <input type="text" class="form-control animated fadeInUp" id="username-signup" required>
+            </div>
+            <div class="mb-3">
+              <label for="email-signup" class="form-label">Email</label>
+              <input type="email" class="form-control animated fadeInUp delay-1s" id="email-signup" required>
+            </div>
+            <div class="mb-3">
+              <label for="password-signup" class="form-label">Password</label>
+              <input type="password" class="form-control animated fadeInUp delay-2s" id="password-signup" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 animated fadeInUp delay-3s">Sign Up</button>
+            <p class="text-center text-dark mt-3">Already have an account? <span class="text-primary" onclick="toggleSignup(false)" style="cursor: pointer;">Login</span></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function toggleSignup(isSignUp) {
+      if (isSignUp) {
+        document.querySelector('.signup-form').style.display = 'block';
+        document.querySelector('.tab-content').style.display = 'none';
+      } else {
+        document.querySelector('.signup-form').style.display = 'none';
+        document.querySelector('.tab-content').style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>

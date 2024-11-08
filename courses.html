@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Video Background */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .video-background video {
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      opacity: 1; /* Adjust as needed */
+    }
+
+    /* Overlay and Body Styling */
+    body {
+      color: #ffffffd5;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+    .logo-container {
+    display: flex;
+    justify-content: left;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0); /* Fully transparent */
+
+}
+
+    /* Main Heading Styling */
+    .main-heading {
+      color: #ffffffd5;
+      font-size: 2.8rem;
+      font-family: Arial, Courier, monospace; 
+      white-space: nowrap; /* Prevent text from wrapping to the next line */
+      overflow: hidden;
+      text-transform: uppercase;
+      text-align: center;
+      width: 0;
+      margin-bottom: 20px;
+      animation: fadeInDown 1.5s ease-in-out;
+      animation: typing 2s steps(40) 1s forwards, blink 0.75s step-end infinite; 
+    }
+    @keyframes typing {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Blinking cursor effect */
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+    /* Subtitle for courses section */
+    h2 {
+      color: #ffffffd5;
+      font-weight: bold;
+      
+    }
+
+    /* Course Card Styling */
+    .card {
+      border: none;
+      border-radius: 10px;
+      background-color: white;
+      color: #001f5b;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Button Styling */
+    .btn-primary {
+      background-color: #cc0000;
+      border: none;
+      color: #fff;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #990000;
+      transform: scale(1.1);
+    }
+    
+
+    /* Animations */
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      animation: fadeInUp 0.8s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+    <div class="logo-container fixed-top shadow-sm">
+        <a href="index.html">
+            <img src="mastersoils.webp" alt="Logo" class="logo-img">
+        </a>
+    </div>
+<!-- Background Video -->
+<div class="video-background">
+  <video autoplay muted loop>
+    <source src="12421542_3840_2160_30fps.mp4" type="video/mp4">
+  </video>
+</div>
+
+<div class="container my-5">
+  <!-- Unique Heading -->
+  <h1 class="main-heading">Where Tomorrow’s Skills Meet Today’s Ambition</h1>
+  
+  <h2 class="text-center mb-5">Our Courses</h2>
+  
+
+    <!-- DSA Using Python -->
+    <div class="row">
+       
+        <div class="col-md-3 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="py.webp" class="card-img-top" alt="React JS with Project">
+                <div class="card-body">
+                    <h3 class="card-title">DSA Using Python</h3>
+                    <p class="card-text">Become proficient in data structures and algorithms using Python.</p>
+                    <p><strong>Price:</strong> 4000</p>
+                    <p><strong>Duration:</strong> 8 weeks</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- React JS with Project -->
+        <div class="col-md-3 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="reactjs.webp" class="card-img-top" alt="React JS with Project">
+                <div class="card-body">
+                    <h3 class="card-title">React JS with Project</h3>
+                    <p class="card-text">Gain hands-on experience in React and deliver amazing projects.</p>
+                    <p><strong>Price:</strong> 5500</p>
+                    <p><strong>Duration:</strong> 24 weeks</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Front End - HTML, CSS, JS -->
+        <div class="col-md-3 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="front.jpg" class="card-img-top" alt="Front End - HTML, CSS, JS">
+                <div class="card-body">
+                    <h3 class="card-title">Front End - HTML, CSS, JS</h3>
+                    <p class="card-text">Master the basics of frontend development with this comprehensive course.</p>
+                    <p><strong>Price:</strong> 2500</p>
+                    <p><strong>Duration:</strong> 6 weeks</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Backend Python Django -->
+        <div class="col-md-3 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="dj.jpg" class="card-img-top" alt="Backend Python Django">
+                <div class="card-body">
+                    <h3 class="card-title">Backend Python Django</h3>
+                    <p class="card-text">Develop backend skills and master the Django framework.</p>
+                    <p><strong>Price:</strong> 5500</p>
+                    <p><strong>Duration:</strong> 24 weeks</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-md-3 mb-4">
+        <div class="card h-100 shadow-sm">
+            <img src="mysql.jpg" class="card-img-top" alt="MySQL">
+            <div class="card-body">
+                <h3 class="card-title">MySQL</h3>
+                <p class="card-text">Develop database skills and master MySQL for managing and querying relational databases.</p>
+                <p><strong>Price:</strong> 4500</p>
+                <p><strong>Duration:</strong> 12 weeks</p>
+                <a href="#" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
+    </div>
+
+<div class="col-md-3 mb-4">
+    <div class="card h-100 shadow-sm">
+        <img src="cyber1.jpg" class="card-img-top" alt="Cybersecurity">
+        <div class="card-body">
+            <h3 class="card-title">Cybersecurity</h3>
+            <p class="card-text">Learn how to protect networks, systems, and data from cyber threats and attacks. Master the skills needed for a career in cybersecurity.</p>
+            <p><strong>Price:</strong> 7500</p>
+            <p><strong>Duration:</strong> 24 weeks</p>
+            <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+    </div>
+</div>
+</div>
+
+    
+  <!-- Contact Us Section -->
+  <div class="contact-section text-center my-5">
+    <h2>Contact Us</h2>
+    <p>For more information, please contact us  </p>
+         <button onclick="location.href='index.html#contact-us'" class="btn btn-primary">Contact Us</button>
+      
+  </div>
+</div>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

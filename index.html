@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MasterSolis</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+         /* Center the video in its container */
+         .video-background {
+            position: fixed; /* Fixed to the screen */
+            top: 0;
+            left: 0;
+            width: 100%; /* Fill the screen */
+            height: 100%; /* Fill the screen */
+            object-fit: cover; /* Make sure the video covers the whole screen */
+            z-index: -1; /* Put it behind all the content */
+        }
+       /* Style the dropdown menu */
+.dropdown-menu {
+    background-color: #f8f9fa; /* Light background color */
+    border: 1px solid #ddd;   /* Border color */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Shadow for dropdown */
+    padding: 10px 0; /* Padding for the dropdown */
+    min-width: 200px; /* Min width for the dropdown */
+}
+
+/* Style the dropdown items */
+.dropdown-item {
+    color: #333; /* Text color */
+    padding: 8px 20px; /* Padding for each item */
+    text-align: left; /* Align text to the left */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Change background color when hovering over an item */
+.dropdown-item:hover {
+    background-color: #051e39; /* Hover background color */
+    color: white; /* Hover text color */
+}
+
+/* Style for the dropdown divider (optional) */
+.dropdown-divider {
+    border-top: 1px solid #ddd;
+    margin: 5px 0;
+}
+
+/* Ensure the dropdown aligns well */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block; /* Make dropdown visible on hover */
+}
+
+/* Additional customization for when the dropdown is open on mobile */
+@media (max-width: 992px) {
+    .dropdown-menu {
+        min-width: 100%; /* Make the dropdown menu fill the width on mobile */
+    }
+}
+
+        /* Navbar Styles */
+        .navbar {
+            padding: 15px 50px;
+            background-color: #001f5b;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand img {
+            height: 50px;
+        }
+        .navbar-nav .nav-item {
+            margin: 0 15px;
+        }
+        .nav-link {
+            font-weight: 600;
+            color: #fff !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .nav-link:hover {
+            background-color: #004080;
+            color: #fff !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            text-align: center;
+            color: white;
+            padding: 150px 0;
+            overflow: hidden;
+        }
+
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .hero-text {
+            background: rgba(17, 4, 4, 0.8);
+            padding: 30px 40px;
+            border-radius: 10px;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero-text h1 {
+            font-weight: 600;
+            font-size: 3rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+       /* Section Title */
+.section-title {
+    font-size: 2.75rem; /* Slightly larger font for emphasis */
+    font-weight: bold;
+    color: #f5f5f5;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Section Description */
+.section-description {
+    font-size: 1.25rem;
+    color: #fbf6f6;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.8;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Section Container */
+.section-container {
+    padding: 4rem 2rem;
+    background: linear-gradient(114.9deg, rgb(34, 34, 34) 8.3%, rgb(0, 40, 60) 41.6%, rgb(0, 143, 213) 93.4%);
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem; /* Add margin-bottom to space out the cards from the section */
+    opacity:90%;
+}
+
+
+/* Service Cards */
+/* Service Cards */
+.service-card {
+    background-color: #1e3a5f;
+    position: relative;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 123, 255, 0.3), rgba(255, 0, 0, 0.3)); /* Blue-Red Gradient */
+    transition: transform 0.7s ease-in-out, opacity 0.3s ease;
+    z-index: 0;
+}
+
+.service-card:hover {
+    transform: translateY(-10px); /* Lift card on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+}
+
+.service-card:hover::before {
+    transform: scale(1.1); /* Slightly enlarge the gradient background */
+    opacity: 0.6; /* Fade the gradient to make text more visible */
+}
+
+.service-card .card-body {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .card-body {
+    transform: translateY(-5px); /* Slight shift in content */
+}
+
+.service-card .card-title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #16100d;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.service-card .card-title:hover {
+    color: #007bff; /* Title color change on hover */
+}
+
+.service-card .card-text {
+    color: #e0baba;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.service-card:hover .card-text {
+    opacity: 1; /* Increase opacity on hover for better visibility */
+}
+
+.service-card .btn-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.service-card .btn-link:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+    .section-title {
+        font-size: 2rem; /* Smaller title on mobile */
+    }
+
+    .section-description {
+        font-size: 1.125rem; /* Smaller description text */
+    }
+
+    .service-card .card-body {
+        padding: 1.5rem; /* More padding on mobile */
+    }
+}
+
+        /* Buttons */
+        .btn-primary {
+            background-color: #001f5b;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #004080;
+        }
+
+        .btn-danger {
+            background-color: #d9534f;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            background-color: #b52f2a;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #001f5b;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        /* Find Out More Section */
+        .find-out-more {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .find-out-more h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .find-out-more p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Contact Us Section */
+        .contact-us {
+            background: linear-gradient(114.9deg, rgb(34, 34, 34) 8.3%, rgb(0, 40, 60) 41.6%, rgb(0, 143, 213) 93.4%);
+            padding: 30px 0;
+        }
+
+        .contact-us h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #e6eaee;
+        }
+
+        .contact-us p {
+            font-size: 1.1rem;
+            color: #fdf8f8;
+        }
+
+        .contact-us .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-us .form-control {
+            border-radius: 5px;
+        }
+
+        .contact-us .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 10px 20px;
+        }
+
+        .contact-us .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+    </style>
+</head>
+<body>
+    <video class="video-background" autoplay muted loop>
+        <source src="19419586-hd_1920_1080_30fps-vmake.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+    <a class="navbar-brand" href="#">
+        <img src="mastersoils.webp" alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#services">Our Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+            <li class="nav-item"><a class="nav-link" href="inter.html">Internships</a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                    <a class="dropdown-item" href="events.html">Events</a>
+                  
+                    <a class="dropdown-item" href="#contact-us">Contact Us</a>
+                    <a class="dropdown-item" href="products.html">Login</a>
+                    <a class="dropdown-item" href="faqs.html">FAQs</a>
+                    
+                    
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero-section" id="home">
+    <img src="./images/background.jpg" alt="Background Image" class="hero-bg-image">
+    <div class="container hero-text">
+        <h1>Experience Digital Excellence with MasterSolis</h1>
+        <p>MasterSolis InfoTech believes in connecting corporate professionals to excel students professionally and make them industry-ready.</p>
+        <div class="mt-4">
+            <a href="products.html" class="btn btn-primary btn-lg mr-2">Join Now</a>
+            <a href="courses.html" class="btn btn-danger btn-lg">Learn More</a>
+        </div>
+    </div>
+</div>
+
+<!-- Our Services Section -->
+<div class="container my-5 pt-5 " id="services">
+    <div class="section-container text-center">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-description ">MasterSolis InfoTech is your go-to IT consulting partner. With our range of services and expertise, we can help your business succeed in even the most challenging environments.</p>
+    </div>
+    <div class="row">
+        <!-- Cloud Solutions Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card service-card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">Cloud Solutions</h4>
+                    <p class="card-text">We offer cloud storage solutions that are designed to meet your specific needs. With our state-of-the-art technology, you can rest assured that your data is safe and easily accessible.</p>
+                    <a href="#" class="btn btn-link">+ Learn More</a>
+                </div>
+            </div>
+        </div>
+        <!-- IT Services Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card service-card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">IT Services</h4>
+                    <p class="card-text">Our proficient cutting-edge technology allows us to provide the most efficient services available, while our team of experienced professionals brings a wealth of knowledge and expertise to every project we undertake.</p>
+                    <a href="#" class="btn btn-link">+ Learn More</a>
+                </div>
+            </div>
+        </div>
+        <!-- Web Development Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card service-card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">Web Development</h4>
+                    <p class="card-text">We specialize in creating responsive designs that are fully customizable to your unique business needs. Our team prioritizes a user-friendly interface for optimal customer engagement.</p>
+                    <a href="#" class="btn btn-link">+ Learn More</a>
+                </div>
+            </div>
+        </div>
+        <!-- Full Stack Training Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card service-card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">Full Stack Training</h4>
+                    <p class="card-text">Our full stack training program offers expert training, giving you all the tools you need to become a successful developer. We provide a comprehensive curriculum that covers everything you need to know.</p>
+                    <a href="#" class="btn btn-link">+ Learn More</a>
+                </div>
+            </div>
+        </div>
+        <!-- Projects Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card service-card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">Projects</h4>
+                    <p class="card-text">Looking for a team that can take on your final year project with confidence? Our IT startup specializes in providing innovative solutions that will help take your project to a whole new level.</p>
+                    <a href="#" class="btn btn-link">+ Learn More</a>
+                </div>
+            </div>
+        </div>
+        <!-- Internships Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card service-card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">Internships</h4>
+                    <p class="card-text">Our comprehensive internship program offers hands-on experience in the fast-paced world of technology. We provide a supportive and stimulating environment where you’ll thrive and grow.</p>
+                    <a href="inter.html" class="btn btn-link">+ Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Find Out More Section -->
+<div class="find-out-more py-4">
+    <h2>Discover How MasterSolis Can Transform Your Business</h2>
+    <p>From digital marketing to full-fledged software development, MasterSolis provides innovative solutions tailored to your business needs. Get in touch with us today to find out how we can help you thrive in the digital era.</p>
+    <a href="#contact-us" class="btn btn-primary btn-lg mt-3">Contact Us</a>
+</div>
+
+<!-- Contact Us Section -->
+<div class="contact-us">
+    <div class="container my-0 pt-0" id="contact-us">
+        <h2 class="text-center mb-4">Contact Us</h2>
+        <p class="text-center mb-5">Got questions? We'd love to hear from you. Reach out to us through the form below:</p>
+        <form action="submit_form.php" method="POST">
+            <div class="form-group">
+                <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+        </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 MasterSolis InfoTech. All Rights Reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+</footer>
+
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+</body>
+</html>
